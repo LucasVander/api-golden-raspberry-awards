@@ -1,2 +1,85 @@
-# api-golden-raspberry-awards
-API RESTful para possibilitar a leitura da lista de indicados e vencedores  da categoria Pior Filme do Golden Raspberry Awards
+# Golden Raspberry Awards
+Esta API fornece informações sobre os intervalos mínimos e máximos de prêmios ganhos por produtores nos Prêmios Golden Raspberry.
+
+### Endpoints
+
+GET /api/golden-raspberry-awards/movie
+`Retorna a lista de todos os filmes indicados ao prêmio.`
+
+GET /api/golden-raspberry-awards/movie/interval
+`Retorna os intervalos mínimos e máximos entre os prêmios ganhos por produtores.`
+
+
+### Estrutura do Projeto
+
+- MovieController: Controlador REST que lida com as requisições para os intervalos de prêmios.
+- MovieService: Serviço que contém a lógica de negócio para calcular os intervalos mínimos e máximos de prêmios dos produtores.
+- MovieRepository: Repositório de persistência e leitura do BD.
+- GlobalExceptionHandler: Classe que controla e padroniza todas as exceções lançadas.
+- ErrorDetails: Classe que padroniza um erro.
+- FileNotFoundException: Exceção para quando o arquivo da lista de permiações não é econtrado.
+- MoviesNotFoundException: Exceção para quando não é encontrado nenhum filme.
+- ProducerIntervalsResponse: Classe de resposta que encapsula os intervalos mínimos e máximos.
+- ProducerInterval: Classe que representa um intervalo de prêmios para um produtor.
+- Movie: Entidade que representa um filme no sistema.
+
+### Executando a Aplicação
+
+Pré-requisitos:
+
+- Java 11+
+- Maven
+
+### Passos para Execução
+
+- Clone o repositório:
+
+```
+git clone https://github.com/seu-usuario/golden-raspberry-awards.git
+cd golden-raspberry-awards
+```
+
+- Compile o projeto e rode os testes unitários:
+
+```
+mvn clean install
+````
+
+- Execute a aplicação:
+
+```
+mvn spring-boot:run
+```
+
+### Testando a API
+Para testar o endpoint, você pode usar ferramentas como curl, `Postman`, ou Insomnia. Aqui está um exemplo usando curl`:
+
+```
+curl -X GET http://localhost:8080/api/golden-raspberry-awards/movie/interval -H "Accept: application/json"
+```
+
+- Exemplo de Resposta
+
+```json
+{
+  "min": [
+    {
+      "producer": "ProducerName",
+      "interval": 1,
+      "previousWin": 2000,
+      "followingWin": 2001
+    }
+  ],
+  "max": [
+    {
+      "producer": "ProducerName",
+      "interval": 10,
+      "previousWin": 1990,
+      "followingWin": 2000
+    }
+  ]
+}
+```
+
+### Licença
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo LICENSE para mais detalhes.
