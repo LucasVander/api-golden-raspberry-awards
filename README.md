@@ -6,15 +6,20 @@ Esta API fornece informações sobre os intervalos mínimos e máximos de prêmi
 GET /api/golden-raspberry-awards/movie
 `Retorna a lista de todos os filmes indicados ao prêmio.`
 
-GET /api/golden-raspberry-awards/movie/interval
+GET /api/golden-raspberry-awards/producer
+`Retorna a lista de todos os produtores e seus filmes indicados.`
+
+GET /api/golden-raspberry-awards/interval
 `Retorna os intervalos mínimos e máximos entre os prêmios ganhos por produtores.`
 
 
 ### Estrutura do Projeto
 
-- MovieController: Controlador REST que lida com as requisições para os intervalos de prêmios.
-- MovieService: Serviço que contém a lógica de negócio para calcular os intervalos mínimos e máximos de prêmios dos produtores.
+- GoldenRaspberryAwardsController: Controlador REST que lida com as requisições para os intervalos de prêmios.
+- MovieService: Serviço para consultar os filmes (contém a lógica de negócio para calcular os intervalos mínimos e máximos de prêmios dos produtores).
+- ProducerService: Serviço para consultar os produtores.
 - MovieRepository: Repositório de persistência e leitura do BD.
+- ProducerRepository: Repositório de persistência e leitura do BD.
 - GlobalExceptionHandler: Classe que controla e padroniza todas as exceções lançadas.
 - ErrorDetails: Classe que padroniza um erro.
 - FileNotFoundException: Exceção para quando o arquivo da lista de permiações não é econtrado.
@@ -22,6 +27,10 @@ GET /api/golden-raspberry-awards/movie/interval
 - ProducerIntervalsResponse: Classe de resposta que encapsula os intervalos mínimos e máximos.
 - ProducerInterval: Classe que representa um intervalo de prêmios para um produtor.
 - Movie: Entidade que representa um filme no sistema.
+- Producer: Entidade que representa um produtor no sistema.
+- MovieDTO: Objeto para transferência da entidade filme.
+- ProducerDTO: Objeto para transferênciia da entidade produtor.
+- WinnerProducerMovies: Objeto que representa os filmes vencedores da premiação de um produtor.
 
 ### Executando a Aplicação
 
