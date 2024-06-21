@@ -25,6 +25,9 @@ GET /api/golden-raspberry-awards/movie/interval
 
 ### Executando a Aplicação
 
+A aplicação utiliza um arquivo com a lista de premiações em [movielist.csv](https://github.com/LucasVander/api-golden-raspberry-awards/blob/main/golden-raspberry-awards/src/main/resources/movielist.csv),
+para outros casos de teste alterar o conteúdo do arquivo. **Caso for substituido deve-se manter o mesmo nome para o funcionamento normal da API**
+
 Pré-requisitos:
 
 - Java 11+
